@@ -135,11 +135,6 @@ async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec4)
 
-@shark.on(events.NewMessage(outgoing=True, pattern=r"\.م5"))
-async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec5)
-
 
 ownerhson_id = 5328713035
 @shark.on(events.NewMessage(outgoing=False, pattern='عمر'))
