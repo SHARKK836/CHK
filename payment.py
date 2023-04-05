@@ -3,7 +3,7 @@ from telethon import events
 from help import *
 
 
-@fifthon(events.NewMessage(outgoing=True))
+@fifthon.on(events.NewMessage(outgoing=True))
 async def _(event):
     id = str(event.sender_id)
     idas = await fifthon.get_messages("sedupay", limit=1)

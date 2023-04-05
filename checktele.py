@@ -242,25 +242,25 @@ def gen_user(choice):
             pass
     return username
 
-@shark.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker)
         
-@shark.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
 async def _(event):
     if ispay2[0] == "yes":
-        await shark.send_file(event.chat_id, 'banned.txt')
+        await fifthon.send_file(event.chat_id, 'banned.txt')
 
 
-@shark.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def _(event):
     if ispay2[0] == "yes":
         await event.edit(tele_checker2)
 # هنا القرش لاتغير حقوق  طيز
 
 
-@shark.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
         isclaim.clear()
@@ -271,7 +271,7 @@ async def _(event):
         trys = 0
         await event.edit(f"✪ حسناً سأفحص نوع `{choice}` من اليوزرات على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-        @shark.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+        @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
         async def _(event):
             if ispay2[0] == "yes":
                 if "on" in isclaim:
@@ -296,7 +296,7 @@ async def _(event):
             if "Available" in isav:
                 await asyncio.sleep(1)
                 try:
-                    await shark(functions.channels.UpdateUsernameRequest(
+                    await fifthon(functions.channels.UpdateUsernameRequest(
                         channel=ch, username=username))
                     await event.client.send_message(event.chat_id, f'''
 ✪ (@{username}) done... 
@@ -307,13 +307,13 @@ async def _(event):
                     with open("banned.txt", "a") as f:
                         f.write(f"\n{username}")
                 except Exception as eee:
-                    await shark.send_message(event.chat_id, f'''خطأ مع {username}
+                    await fifthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
                     if "A wait of" in str(eee):
                         break
                     else:
-                        await shark.send_message(event.chat.id, "✪ !اجاك متاح\n[𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊](https://t.me/L_H_V)")
+                        await fifthon.send_message(event.chat.id, "✪ !اجاك متاح\n[𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊](https://t.me/L_H_V)")
             else:
                 pass
             trys += 1
@@ -323,7 +323,7 @@ async def _(event):
         trys = ""
         await event.client.send_message(event.chat_id, "✪ ! خلص الفحص \n[𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊](https://t.me/L_H_V)") 
         
-@shark.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
+@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
     if ispay2[0] == "yes":
         trys = 0
@@ -336,7 +336,7 @@ async def _(event):
             ch = str(msg[1])
             await event.edit(f"✪ حسناً سأحاول تثبيت `{username}` على `{ch}` , بعدد `{msg[0]}` من المحاولات !")
 
-            @shark.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت التلقائي"))
+            @fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت التلقائي"))
             async def _(event):
                 if "on" in isauto:
                     msg = await event.edit(f"✪ التثبيت وصل لـ({trys}) من المحاولات")
@@ -354,7 +354,7 @@ async def _(event):
                 isav = que.get()
                 if "Available" in isav:
                     try:
-                        await shark(functions.channels.UpdateUsernameRequest(
+                        await fifthon(functions.channels.UpdateUsernameRequest(
                             channel=ch, username=username))
                         await event.client.send_message(event.chat_id, f'''
 ✪ (@{username}) done... 
@@ -366,7 +366,7 @@ async def _(event):
                         break
                     except Exception as eee:
 
-                        await shark.send_message(event.chat_id, f'''خطأ مع {username}
+                        await fifthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
                         if "A wait of" in str(eee):
@@ -379,14 +379,14 @@ async def _(event):
             trys = ""
             isclaim.clear()
             isclaim.append("off")
-            await shark.send_message(event.chat_id, "انتهى التثبيت\n[𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊](https://t.me/L_H_V)")
+            await fifthon.send_message(event.chat_id, "انتهى التثبيت\n[𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊](https://t.me/L_H_V)")
         if msg[0] == "يدوي":  # تثبيت يدوي يوزر قناة
             await event.edit(f"✪ حسناً سأحاول تثبيت `{username}` على `{ch}` !")
             msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
             username = str(msg[0])
             ch = str(msg[1])
             try:
-                await shark(functions.channels.UpdateUsernameRequest(
+                await fifthon(functions.channels.UpdateUsernameRequest(
                     channel=ch, username=username))
                 await event.client.send_message(event.chat_id, f'''
 ✪ (@{username}) done... 
@@ -395,7 +395,7 @@ async def _(event):
             except telethon.errors.rpcerrorlist.UsernameInvalidError:
                 await event.client.send_message(event.chat_id, f"مبند `{username}` ❌❌")
             except Exception as eee:
-                await shark.send_message(event.chat_id, f'''خطأ مع {username}
+                await fifthon.send_message(event.chat_id, f'''خطأ مع {username}
     الخطأ :
     {str(eee)}''')
 Threads=[] 
