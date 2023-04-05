@@ -21,7 +21,7 @@ from checktele import *
 
 # -
 
-fifthon.start()
+shark.start()
 
 y = datetime.datetime.now().year
 m = datetime.datetime.now().month
@@ -45,12 +45,12 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await fifthon(JoinChannelRequest("@L_H_V"))
+        await shark(JoinChannelRequest("@L_H_V"))
     except BaseException:
         pass
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"هممم"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"هممم"))
 async def _(event):
     if not event.is_reply:
         return await event.edit(
@@ -59,7 +59,7 @@ async def _(event):
     rr9r7 = await event.get_reply_message()
     await event.delete()
     pic = await rr9r7.download_media()
-    await fifthon.send_file(
+    await shark.send_file(
         "me", pic, caption=f"✪ تم حفظ الصورة او الفيديو الذاتي هنا : "
     )
 
@@ -93,11 +93,11 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
             pass
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
 async def _(event):
     await event.edit(commands)
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit("✪ يتم الفحص...")
@@ -112,44 +112,49 @@ async def _(event):
 ''')
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec1)
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec2)
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec3)
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec4)
 
-    
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.م5"))
+async def _(event):
+    start = datetime.datetime.now()
+    await event.edit(sec5)
+
+
 ownerhson_id = 5328713035
-@fifthon.on(events.NewMessage(outgoing=False, pattern='عمر'))
+@shark.on(events.NewMessage(outgoing=False, pattern='عمر'))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhson_id :
         order = await event.reply('✪ ✪ ✪ @T_3_A ✪ ✪ ✪')
 
 
-@fifthon.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
+@shark.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
     await event.edit(" ✪ ثـواني ويشتغل ؟ لمن مايشتغل طب سولف بكروبي  @QW_PN ")
-    await fifthon.disconnect()
-    await fifthon.send_message("me", "✪ `اكتملت اعادة تشغيل السورس !`")
+    await shark.disconnect()
+    await shark.send_message("me", "✪ `اكتملت اعادة تشغيل السورس !`")
 
 
-print("- fifthon Userbot Running ..")
-fifthon.run_until_disconnected()
+print("- shark Userbot Running ..")
+shark.run_until_disconnected()

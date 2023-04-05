@@ -1,7 +1,7 @@
 {
     "name": "𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊",
     "description": "〔 سـورس القرش 𝐒𝐎𝐔𝐑𝐂𝐄 𝐒𝐇𝐀𝐑𝐊 𓅛 〕التحـديث الجديـد افضـل سـورسـات التشيكر العربيـة : › عربـي بالكـامل › تحديثـات متواصـله › مبنـي ع آخـر اصـدار مـن لغـة بايثـون〔 Python 3.10.6 〕- مطـور السـورس : القرش الهيبـه",
-    "logo" : "https://telegra.ph/file/cde2b51203fbdab57fac5.jpg",
+    "logo" : ".",
     "stack": "container",
     "repository": "https://github.com/perdark/per-sed",
     "keywords": [
